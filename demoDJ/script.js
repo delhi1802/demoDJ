@@ -18,9 +18,9 @@ const story = [
     question: 'four digits of us?',
     answer: '1802'
   },
- {
+  {
     type: 'question',
-    question: 'what is our song ?',
+    question: 'what is our song?',
     answer: 'Aval'
   },
   {
@@ -88,5 +88,6 @@ function checkAnswer() {
     alert("Thappu ri venna mavale... 🤔");
   }
 }
+
 
 renderPage();
