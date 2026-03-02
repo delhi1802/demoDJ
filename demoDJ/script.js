@@ -67,11 +67,27 @@ function nextPage() {
   }
 }
 
+function showHeart() {
+  const heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.style.position = "fixed";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.bottom = "0px";
+  heart.style.fontSize = "24px";
+  heart.style.animation = "floatUp 2s linear forwards";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 2000);
+}
+
 function checkAnswer() {
   const userInput = document.getElementById('answerInput').value.toLowerCase().trim();
   const correctAnswer = story[currentPage].answer.toLowerCase().trim();
 
   if (userInput === correctAnswer) {
+    showHeart();   // ❤️ show animation
     nextPage();
   } else {
     alert("Thappu ri venna mavale... 🤔");
