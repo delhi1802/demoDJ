@@ -17,16 +17,47 @@ body {
   color: white;
   width: 90%;
   max-width: 400px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 button {
-  background: #ff4d6d;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: pulse 1.8s infinite;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
 
 input {
@@ -34,4 +65,22 @@ input {
   border-radius: 10px;
   border: none;
   width: 80%;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 10px rgba(255, 77, 109, 0.8);
+}
+
+/* Heart animation */
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
 }
