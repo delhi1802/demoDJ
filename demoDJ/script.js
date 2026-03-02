@@ -20,11 +20,6 @@ const story = [
   },
   {
     type: 'question',
-    question: 'what is our song?',
-    answer: 'Aval'
-  },
-  {
-    type: 'question',
     question: 'How i call ?',
     answer: 'Ammu'
   },
@@ -91,3 +86,4 @@ function checkAnswer() {
 
 
 renderPage();
+
