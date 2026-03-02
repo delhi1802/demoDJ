@@ -1,6 +1,3 @@
-const app = document.getElementById('app');
-let currentPage = 0;
-
 const story = [
   {
     type: 'landing',
@@ -21,69 +18,15 @@ const story = [
   {
     type: 'question',
     question: 'How i call ?',
-    answer: 'Ammu'
+    answer: 'ammu'   // ✅ lowercase
   },
   {
     type: 'question',
     question: 'Who proposed 1st?',
-    answer: 'Raj'
+    answer: 'raj'    // ✅ lowercase
   },
   {
     type: 'end',
     text: "Avalothan di dhinakaran mavale 🥂"
   }
 ];
-
-function renderPage() {
-  const page = story[currentPage];
-  app.innerHTML = '';
-
-  if (page.type === 'landing') {
-    app.innerHTML = `
-      <h1>${page.title}</h1>
-      <p>${page.subtitle}</p>
-      <button onclick="nextPage()">${page.buttonText}</button>
-    `;
-  }
-
-  if (page.type === 'question') {
-    app.innerHTML = `
-      <h2>${page.question}</h2>
-      <input type="text" id="answerInput" placeholder="Type pannga broo...">
-      <br><br>
-      <button onclick="checkAnswer()">Submit</button>
-    `;
-  }
-
-  if (page.type === 'memory') {
-    app.innerHTML = `
-      <img src="${page.image}">
-      <p>${page.text}</p>
-      <button onclick="nextPage()">${page.buttonText}</button>
-    `;
-  }
-
-  if (page.type === 'end') {
-    app.innerHTML = `<h1>${page.text}</h1>`;
-  }
-}
-
-function nextPage() {
-  currentPage++;
-  if (currentPage < story.length) {
-    renderPage();
-  }
-}
-
-function checkAnswer() {
-  const userInput = document.getElementById('answerInput').value.toLowerCase().trim();
-  if (userInput === story[currentPage].answer) {
-    nextPage();
-  } else {
-    alert("Thappu ri venna mavale... 🤔");
-  }
-}
-
-
-renderPage();
-
